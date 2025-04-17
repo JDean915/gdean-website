@@ -1,0 +1,318 @@
+/* Reset & Base */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #0f1b26;
+  color: #fff;
+  line-height: 1.6;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.drawer-header-actions::part(panel) {
+  background-color: #0D1B2A;
+}
+
+.drawer-header-actions::part(header) {
+  background-color: black;
+
+}
+
+.drawer-header-actions::part(title) {
+  background-color: white;
+  color: black;
+}
+
+.drawer-header-actions::part(body) {
+  background-color: black;
+  color: white;
+}
+
+.drawer-header-actions::part(footer) {
+  background-color: white;
+  color: black;
+}
+
+sl-drawer::part(close-button) {
+  color: white;
+}
+
+sl-drawer::part(close-button):hover {
+  color: #f02c2c;
+  transition: color 0.3s;
+}
+
+sl-drawer::part(base) {
+  top: 80px !important;
+  height: calc(100vh - 80px);
+  /* Full screen minus navbar */
+}
+
+sl-drawer::part(body) {
+  overflow-y: auto;
+}
+
+
+
+
+/* Navigation */
+.navbar {
+  background-color: #0D1B2A;
+  padding: 1.6rem 2rem;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  height: 80px;
+}
+
+sl-drawer::part(base) {
+  top: 80px;
+  /* Align with bottom of navbar */
+
+}
+
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  position: relative;
+}
+
+/* NEW: Centered logo */
+.logo-container {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #E0E1DD;
+  white-space: nowrap;
+}
+
+/* Left: Social icons */
+.links-container {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+sl-icon {
+  font-size: 1.0rem;
+  color: #E0E1DD;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+sl-icon:hover {
+  color: #f02c2c;
+}
+
+/* Right: Nav + hamburger */
+.menu-container {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+/* Nav links (desktop) */
+.nav-links {
+  display: flex;
+  gap: 2rem;
+}
+
+.nav-links a:hover {
+  color: #f02c2c;
+  transition: color 0.3s;
+}
+
+.hamburger {
+  display: none;
+  font-size: 2rem;
+  color: #E0E1DD;
+  cursor: pointer;
+  background: none;
+  border: none;
+}
+
+/* Hide the checkbox */
+.menu-toggle {
+  display: none;
+}
+
+/* Hero */
+.hero {
+  background: url('images/cindy-koops-NBCuJtqgGX8-unsplash.jpg') center/cover no-repeat;
+  height: 90vh;
+  display: flex;
+  align-items: center;
+  justify-content: left;
+}
+
+.hero-overlay {
+  text-align: left;
+  background: rgba(0, 0, 0, 0);
+  padding: 2rem;
+  border-radius: 10px;
+  max-width: 50%;
+}
+
+.hero h2 {
+  font-size: 62px;
+  margin-bottom: 1rem;
+  line-height: 1.2;
+}
+
+.hero-p {
+  font-size: 18px;
+  margin-bottom: 25px;
+}
+
+.secondary-btn {
+  background-color: #f02c2c;
+  padding: 1rem;
+  border-radius: 5px;
+  justify-content: center;
+}
+
+/* Classes */
+.classes {
+  background-color: #0D1B2A;
+  padding: 3rem 2rem;
+  text-align: center;
+}
+
+.section-title {
+  font-size: 1.8rem;
+  margin-bottom: 2rem;
+}
+
+.class-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1.5rem;
+}
+
+.class-card {
+  background-color: #1e2b38;
+  padding: 1rem;
+  border-radius: 10px;
+}
+
+.class-card img {
+  width: 100%;
+  border-radius: 5px;
+  margin-bottom: 0.5rem;
+}
+
+.class-card p {
+  font-weight: bold;
+}
+
+/* Tablets and down */
+@media (max-width: 1024px) {
+  .hero {
+    justify-content: center;
+    padding: 2rem;
+    text-align: center;
+  }
+
+  .hero-overlay {
+    max-width: 80%;
+    padding: 1.5rem;
+    text-align: center;
+  }
+
+  .hero h2 {
+    font-size: 48px;
+  }
+
+  .hero-p {
+    font-size: 16px;
+  }
+}
+
+/* MOBILE STYLES */
+@media (max-width: 768px) {
+  .nav-container {
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  .hamburger {
+    display: block;
+  }
+
+  /* Hide nav links by default */
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    background-color: #0D1B2A;
+    padding: 1rem 0;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 999;
+  }
+
+  /* Show nav when checkbox is checked */
+  .menu-toggle:checked+.hamburger+.nav-links {
+    display: flex;
+  }
+
+  .nav-links a {
+    padding: 0.5rem 2rem;
+    color: #E0E1DD;
+    text-decoration: none;
+  }
+
+  .nav-links a:hover {
+    background-color: #16232f;
+  }
+
+  sl-drawer::part(body) {
+    overflow-y: auto;
+  }
+}
+
+@media (max-width: 600px) {
+  .hero {
+    height: auto;
+    padding: 3rem 1rem;
+    background-position: center top;
+  }
+
+  .hero-overlay {
+    max-width: 100%;
+    padding: 1rem;
+  }
+
+  .hero h2 {
+    font-size: 36px;
+  }
+
+  .hero-p {
+    font-size: 15px;
+  }
+
+  .secondary-btn {
+    font-size: 1rem;
+    padding: 0.75rem 1.25rem;
+  }
+}
+
+sl-drawer::part(body) {
+  overflow-y: auto;
+}
