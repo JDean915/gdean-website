@@ -51,37 +51,152 @@
       <p class="hero-p">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus luctus, metus sit amet
         fermentum facilisis, mauris magna tincidunt justo, vitae porttitor orci libero nec nisl. Integer vulputate, odio
         sed laoreet feugiat, mauris tortor scelerisque justo, vitae convallis orci mi a orci.</p>
-      <a href="#" class="btn secondary-btn">Learn More</a>
-      
+
       <sl-drawer label="Calculate Your Maintenance Calories" class="drawer-header-actions" style="--size: 100vw;">
         <sl-icon-button class="new-window" slot="header-actions" name="box-arrow-up-right"></sl-icon-button>
-      
+
         <!-- FLEX CONTAINER FOR BOTH CARDS -->
         <div class="drawer-flex">
           <!-- HOW IT WORKS CARD -->
           <sl-card class="info-card">
             <div slot="header" class="card-title">🧠 How It Works</div>
-            <p>This calculator uses the <strong>Mifflin-St Jeor Equation</strong> to estimate your maintenance calories (TDEE).</p>
-      
+            <p>This calculator uses the <strong>Mifflin-St Jeor Equation</strong> to estimate your maintenance calories
+              (TDEE).</p><br />
+
             <p><strong>1. Calculate BMR:</strong></p>
-            <ul>
-              <li><strong>Men:</strong> (10 × weight) + (6.25 × height) − (5 × age) + 5</li>
-              <li><strong>Women:</strong> (10 × weight) + (6.25 × height) − (5 × age) − 161</li>
-            </ul>
-      
+            <div class="details-group-example">
+              <sl-details summary="🔹 Men">
+                <strong>BMR</strong> = 66 + (6.23 * weight) + (12.7 * height) - (6.8 * age)
+              </sl-details>
+
+              <sl-details summary="🔹 Women">
+                <strong>BMR</strong> = 655 + (4.35 * weight) + (4.7 * height) - (4.7 * age)
+                <br />
+              </sl-details>
+              </div>
+            <br />
             <p><strong>2. Apply Activity Factor:</strong></p>
-            <ul>
-              <li>Sedentary: 1.2</li>
-              <li>Lightly active: 1.375</li>
-              <li>Moderately active: 1.55</li>
-              <li>Very active: 1.725</li>
-              <li>Extra active: 1.9</li>
-            </ul>
-      
+            <div class="details-group-example">
+              <sl-details summary="🔹 1. Sedentary (Activity Factor: 1.2)">
+                <strong>Who this is for:</strong>
+                <br />
+                People who are mostly sitting during the day and don’t work out at all.
+                <br /><br />
+                <strong>Examples:</strong>
+                <br />
+                  🔹 Desk job, remote worker, or student who sits most of the day
+                <br />
+                🔹 Minimal walking or movement outside of daily tasks (e.g., making meals, showering)
+                <br /><br />
+                <strong>Good fit for:</strong>
+                <br />
+                Someone just starting their fitness journey with GD Fitness and hasn’t begun any structured physical
+                activity yet.
+              </sl-details>
+
+              <sl-details summary="🔹 2. Lightly Active (Activity Factor: 1.375)">
+                <strong>Who this is for:</strong>
+                <br />
+                You do light exercise 1–3 times a week, or you walk a bit more than average in your daily life.
+                <br /><br />
+                <strong>Examples:</strong>
+                <br />
+                🔹 Walking your dog every day
+                <br />
+                🔹 A couple of yoga classes or short workouts per week
+                <br />
+                🔹 Light household chores or errands
+                <br /><br />
+                <strong>Good fit for:</strong>
+                <br />
+                New GD Fitness users who are easing into a healthy routine —
+                <br /> maybe doing beginner classes or trying out gym sessions a few times per week.
+              </sl-details>
+
+              <sl-details summary="🔹 3. Moderately Active (Activity Factor: 1.55)">
+                <strong>Who this is for:</strong>
+                <br />
+                You exercise 3–5 days a week consistently with moderate intensity.
+                <br /><br />
+                <strong>Examples:</strong>
+                <br />
+                🔹 Following a workout plan from GD Fitness 3–5 days a week
+                <br />
+                🔹 Doing strength training, group fitness classes, or cardio regularly
+                <br />
+                🔹 Working a job that includes light movement (e.g., retail)
+                <br /><br />
+                <strong>Good fit for:</strong>
+                <br />
+                Members in your first or second month at GD Fitness who’ve committed to a structured fitness program.
+              </sl-details>
+
+              <sl-details summary="🔹 4. Very Active (Activity Factor: 1.725)">
+                <strong>Who this is for:</strong>
+                <br />
+                You work out 6–7 days a week, often with high intensity, or you have a physically demanding job.
+                <br /><br />
+                <strong>Examples:</strong>
+                <br />
+                🔹 Daily lifting, HIIT, or fitness classes at GD Fitness
+                <br />
+                🔹 Active lifestyle outside the gym — cycling, running, or playing sports
+                <br />
+                🔹 Jobs like delivery, warehouse work, or construction
+                <br /><br />
+                <strong>Good fit for:</strong>
+                <br />
+                Regular gymgoers, fitness class lovers, or members training for a fitness goal (like fat loss or muscle building).
+              </sl-details>
+
+              <sl-details summary="🔹 5. Extra Active (Activity Factor: 1.9)">
+                <strong>Who this is for:</strong>
+                <br />
+                You’re training intensely every day and might have a physically demanding job or a second workout per day.
+                <br /><br />
+                <strong>Examples:</strong>
+                <br />
+                🔹 Two-a-day training sessions (e.g., lifting in the morning, cardio at night)
+                <br />
+                🔹 Athletes, personal trainers, or those training for a competition
+                <br />
+                🔹 Jobs with heavy physical labor (e.g., movers, firefighters)
+                <br /><br />
+                <strong>Good fit for:</strong>
+                <br />
+                GD Fitness members pushing their limits or training for something big — 
+                <br /> like a physique show, marathon, or transformation challenge.
+              </sl-details>
+
+              <sl-details summary="🔹 Pro-Tips for Gauging Activity Level">
+                🔹When in doubt, choose a slightly lower activity level.
+                <br /><br />
+                🔹It’s easier to increase your calories later than to cut them if your estimate is too high.
+              </sl-details>
+            </div>
+
+            <script>
+              const container = document.querySelector('.details-group-example');
+
+              // Close all other details when one is shown
+              container.addEventListener('sl-show', event => {
+                if (event.target.localName === 'sl-details') {
+                  [...container.querySelectorAll('sl-details')].map(details => (details.open = event.target === details));
+                }
+              });
+            </script>
+
+            <style>
+              .details-group-example sl-details:not(:last-of-type) {
+                margin-bottom: var(--sl-spacing-2x-small);
+              }
+            </style>
+
+            <br />
             <p><strong>TDEE = BMR × Activity Factor</strong></p>
             <p>This gives you the estimated calories to maintain your weight.</p>
           </sl-card>
-      
+
           <!-- CALCULATOR CARD -->
           <sl-card class="card-basic">
             <div class="calc-header" slot="header">Maintenance Calories Calculator</div>
@@ -90,11 +205,11 @@
                 <sl-option value="male">Male</sl-option>
                 <sl-option value="female">Female</sl-option>
               </sl-select><br />
-      
+
               <sl-input id="age" label="Age (years):" type="number" required></sl-input><br />
-              <sl-input id="weight" label="Weight (kg):" type="number" required></sl-input><br />
-              <sl-input id="height" label="Height (cm):" type="number" required></sl-input><br />
-      
+              <sl-input id="weight" label="Weight (lbs):" type="number" required></sl-input><br />
+              <sl-input id="height" label="Height (inches):" type="number" required></sl-input><br />
+
               <sl-select label="Activity" id="activity" required>
                 <sl-option value="1.2">Sedentary (little or no exercise)</sl-option>
                 <sl-option value="1.375">Lightly active (1–3 days/week)</sl-option>
@@ -102,22 +217,22 @@
                 <sl-option value="1.725">Very active (6–7 days/week)</sl-option>
                 <sl-option value="1.9">Extra active (hard training or physical job)</sl-option>
               </sl-select><br />
-      
-              <sl-button type="submit" variant="primary">Calculate TDEE</sl-button>
-              <sl-button type="reset" variant="default">Reset</sl-button>
+
+              <sl-button type="submit" variant="primary" class="cal-btn1">Calculate TDEE</sl-button>
+              <sl-button type="reset" variant="default" class="cal-btn2">Reset</sl-button>
             </form>
-      
+
             <div slot="footer">
               <div id="result" class="result" style="display: none;"></div>
             </div>
           </sl-card>
         </div>
-      
+
         <sl-button slot="footer" variant="primary" class="drawer-close-btn">Close</sl-button>
       </sl-drawer>
-      
 
-      <sl-button>Open Drawer</sl-button>
+
+      <sl-button>Calculate Maintenance Calories</sl-button>
 
       <script>
         const drawer = document.querySelector('.drawer-header-actions');
@@ -128,7 +243,48 @@
         openButton.addEventListener('click', () => drawer.show());
         closeButton.addEventListener('click', () => drawer.hide());
         newWindowButton.addEventListener('click', () => window.open(location.href));
+
+        const calorieForm = document.getElementById('calorieForm');
+
+        calorieForm.addEventListener('submit', (event) => {
+          event.preventDefault();
+
+          const gender = document.getElementById('gender').value;
+          const age = parseInt(document.getElementById('age').value);
+          const weight = parseFloat(document.getElementById('weight').value);
+          const height = parseFloat(document.getElementById('height').value);
+          const activity = parseFloat(document.getElementById('activity').value);
+
+          const resultDiv = document.getElementById('result');
+
+          // Input validation
+          if (!gender || isNaN(age) || isNaN(weight) || isNaN(height) || isNaN(activity)) {
+            resultDiv.style.display = 'block';
+            resultDiv.textContent = '⚠️ Please fill in all fields correctly.';
+            return;
+          }
+
+          let bmr;
+
+          if (gender === 'male') {
+            bmr = 66 + (6.23 * weight) + (12.7 * height) - (6.8 * age);
+          } else {
+            bmr = 655 + (4.35 * weight) + (4.7 * height) - (4.7 * age);
+          }
+
+          const tdee = Math.round(bmr * activity);
+          resultDiv.style.display = 'block';
+          resultDiv.textContent = `Your estimated TDEE is ${tdee} calories/day.`;
+        });
+
+        calorieForm.addEventListener('reset', () => {
+          const resultDiv = document.getElementById('result');
+          resultDiv.style.display = 'none';
+          resultDiv.textContent = '';
+        });
       </script>
+
+
       <style>
         .new-window {
           color: white;

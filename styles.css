@@ -21,13 +21,13 @@ a {
 .drawer-header-actions::part(panel) {
   background-color: #0D1B2A;
   color: white;
+  border-top: 1px solid #2c3e50;
 }
 
 .drawer-header-actions::part(header),
 .drawer-header-actions::part(body),
 .drawer-header-actions::part(footer) {
-  background-color: black;
-  color: white;
+  background-color: #0D1B2A;
 }
 
 .drawer-header-actions::part(title) {
@@ -37,8 +37,23 @@ a {
 }
 
 .drawer-header-actions::part(footer) {
-  background-color: #1b263b;
+  background-color: #0D1B2A;
   border-top: 1px solid #2c3e50;
+}
+
+sl-button::part(base) {
+    border-radius: 10px;
+    cursor: pointer;
+    /* other styles */
+    background: rgba(255, 0, 0, 0.5);
+    backdrop-filter: blur(60px);
+    /* fallback cross browser compatibility */
+    -webkit-backdrop-filter: blur(60px);
+    padding: 10px;
+    color: #fff;
+    font-size: 15px;
+    border: none;
+    box-shadow: 0 0 80px rgba(0, 0, 0, 0.3);
 }
 
 /* Drawer adjustments */
@@ -65,20 +80,20 @@ sl-drawer::part(body) {
   display: flex;
   flex-wrap: wrap;
   gap: 2rem;
-  padding: 2rem;
+  padding: 1rem;
   justify-content: center;
-  align-items: flex-start;
+  background-color: #0D1B2A;
 }
 
 /* Shared card styles */
-.info-card, .card-basic {
-  flex: 1 1 45%;
-  min-width: 320px;
-  max-width: 500px;
-  background-color: #ffffff;
-  color: #000000;
+/* Default: stacked layout for mobile */
+.info-card,
+.card-basic {
+  width: 100%;
   border-radius: 12px;
   padding: 2rem;
+  background-color: #ffffff;
+  color: #000000;
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.25);
 }
 
@@ -86,22 +101,22 @@ sl-drawer::part(body) {
 .card-title, .calc-header {
   font-size: 1.5rem;
   font-weight: 600;
-  margin-bottom: 1.25rem;
+  text-align: center;
 }
 
 /* Form inputs spacing */
 sl-select,
 sl-input {
   width: 100%;
-  margin-bottom: 1rem;
+  margin-bottom: 2rem;
 }
 
 /* Result output */
 .result {
-  margin-top: 1.5rem;
   font-size: 1.3rem;
   font-weight: bold;
   color: #2ecc71;
+  align-items: center;
 }
 
 /* How It Works specific enhancements */
@@ -127,8 +142,51 @@ sl-input {
 }
 
 /* Buttons */
-#calorieForm sl-button + sl-button {
-  margin-left: 0.75rem;
+#calorieForm sl-button.cal-btn1 {
+  flex-direction: row;
+  justify-content: center;
+  margin: 0.1rem;
+  width: 75%;
+}
+
+#calorieForm sl-button.cal-btn1::part(base) {
+  border-radius: 10px;
+  cursor: pointer;
+  background-color: #2ecc71;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  padding: 5px;
+  color: #fff;
+  font-weight: bold;
+  font-size: 15px;
+  border: 2px solid #2ecc71;
+  box-shadow: none;
+}
+
+#calorieForm sl-button.cal-btn1::part(base):hover {
+  background: #fff;
+  color: #2ecc71;
+  transition: color 0.5s;
+}
+
+#calorieForm sl-button.cal-btn2::part(base) {
+  border-radius: 10px;
+  cursor: pointer;
+  background: #fff;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  padding: 5px;
+  color: #f02c2c;
+  font-weight: bold;
+  font-size: 15px;
+  border: 2px solid #f02c2c;
+  box-shadow: none;
+}
+
+#calorieForm sl-button.cal-btn2::part(base):hover {
+  background: #f02c2c;
+  color: #fff;
+  transition: color 0.5s;
 }
 
 /* Navigation */
@@ -383,4 +441,32 @@ sl-icon:hover {
 
 sl-drawer::part(body) {
   overflow-y: auto;
+}
+
+@media (min-width: 768px) {
+  .drawer-flex {
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 0rem;
+  }
+
+  .info-card {
+    min-width: 65%;
+    width: auto;
+    border-radius: 12px;
+    padding: 2rem;
+    background-color: #ffffff;
+    color: #000000;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.25);
+  }
+
+  .card-basic {
+    width: auto;
+    border-radius: 12px;
+    padding: 2rem;
+    background-color: #ffffff;
+    color: #000000;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.25);
+  }
 }
