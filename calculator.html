@@ -47,16 +47,8 @@
 
   <!-- Hero Section -->
   <section class="hero">
-    <div class="hero-overlay">
-      <h2>Stop overthinking.<br />Start moving.</h2>
-      <p class="hero-p">At GD Fitness, we believe action beats hesitation every time. No fluff—just real results. Push past doubt, crush excuses, and level up your life. Whether you're just getting started or going all in, we're here to help you move with purpose and power.</p>
-
-      <sl-drawer label="Calculate Your Maintenance Calories" class="drawer-header-actions" style="--size: 100vw;">
-        <sl-icon-button class="new-window" slot="header-actions" name="box-arrow-up-right"></sl-icon-button>
-
-        <!-- FLEX CONTAINER FOR BOTH CARDS -->
-        <div class="drawer-flex">
           <!-- HOW IT WORKS CARD -->
+        <div class="card-container">
           <sl-card class="info-card">
             <div slot="header" class="card-title">🧠 How It Works</div>
             <p>This calculator uses the <strong>Mifflin-St Jeor Equation</strong> to estimate your maintenance calories
@@ -72,7 +64,6 @@
                 <strong>BMR</strong> = 655 + (4.35 * weight) + (4.7 * height) - (4.7 * age)
                 <br />
               </sl-details>
-              </div>
             <br />
             <p><strong>2. Apply Activity Factor:</strong></p>
             <div class="details-group-example">
@@ -172,25 +163,6 @@
                 <br /><br />
                 🔹It’s easier to increase your calories later than to cut them if your estimate is too high.
               </sl-details>
-            </div>
-
-            <script>
-              const container = document.querySelector('.details-group-example');
-
-              // Close all other details when one is shown
-              container.addEventListener('sl-show', event => {
-                if (event.target.localName === 'sl-details') {
-                  [...container.querySelectorAll('sl-details')].map(details => (details.open = event.target === details));
-                }
-              });
-            </script>
-
-            <style>
-              .details-group-example sl-details:not(:last-of-type) {
-                margin-bottom: var(--sl-spacing-2x-small);
-              }
-            </style>
-
             <br />
             <p><strong>TDEE = BMR × Activity Factor</strong></p>
             <p>This gives you the estimated calories to maintain your weight.</p>
@@ -227,22 +199,7 @@
           </sl-card>
         </div>
 
-        <sl-button slot="footer" variant="primary" class="drawer-close-btn">Close</sl-button>
-      </sl-drawer>
-
-
-      <sl-button>Calculate Maintenance Calories</sl-button>
-
       <script>
-        const drawer = document.querySelector('.drawer-header-actions');
-        const openButton = drawer.nextElementSibling;
-        const closeButton = drawer.querySelector('.drawer-close-btn');
-        const newWindowButton = drawer.querySelector('.new-window');
-
-        openButton.addEventListener('click', () => drawer.show());
-        closeButton.addEventListener('click', () => drawer.hide());
-        newWindowButton.addEventListener('click', () => window.open(location.href));
-
         const calorieForm = document.getElementById('calorieForm');
 
         calorieForm.addEventListener('submit', (event) => {
@@ -282,26 +239,9 @@
           resultDiv.textContent = '';
         });
       </script>
-
-
-      <style>
-        .new-window {
-          color: white;
-        }
-
-        .new-window:hover {
-          color: #f02c2c;
-          transition: color 0.3s;
-        }
-      </style>
     </div>
+</div>
   </section>
-
-  <!-- Popular Classes -->
-  <section class="classes">
-  </section>
-
-
 </body>
 
 </html>

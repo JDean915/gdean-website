@@ -1,15 +1,17 @@
 /* Reset & Base */
 * {
+  font-family: 'Inter';
+  font-size: 100%;
+  letter-spacing: 0.1rem;
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
 body {
-  font-family: 'Arial', sans-serif;
   background-color: #0f1b26;
   color: #fff;
-  line-height: 1.6;
+  line-height: 1.5;
 }
 
 a {
@@ -46,9 +48,9 @@ sl-button::part(base) {
     cursor: pointer;
     /* other styles */
     background: rgba(255, 0, 0, 0.5);
-    backdrop-filter: blur(60px);
+    backdrop-filter: blur(8px);
     /* fallback cross browser compatibility */
-    -webkit-backdrop-filter: blur(60px);
+    -webkit-backdrop-filter: blur(8px);
     padding: 10px;
     color: #fff;
     font-size: 15px;
@@ -94,9 +96,18 @@ sl-drawer::part(body) {
   padding: 2rem;
   background-color: #ffffff;
   color: #000000;
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.25);
 }
 
+sl-card::part(base),
+sl-card::part(footer),
+sl-card::part(header) {
+  box-shadow: none;
+  border-color: #fff;
+}
+
+sl-details::part(summary) {
+  font-weight: bold;
+}
 /* Heading styles */
 .card-title, .calc-header {
   font-size: 1.5rem;
@@ -191,12 +202,15 @@ sl-input {
 
 /* Navigation */
 .navbar {
-  background-color: #0D1B2A;
+  background: rgba(13, 27, 42, 0.1);
   padding: 1.6rem 2rem;
   position: sticky;
   top: 0;
   z-index: 1000;
   height: 80px;
+  backdrop-filter: blur(8px) saturate(100%) contrast(100%);
+  /* fallback cross browser compatibility */
+  -webkit-backdrop-filter: blur(8px);
 }
 
 sl-drawer::part(base) {
@@ -452,21 +466,23 @@ sl-drawer::part(body) {
   }
 
   .info-card {
-    min-width: 65%;
-    width: auto;
+    width: 65%;
     border-radius: 12px;
     padding: 2rem;
-    background-color: #ffffff;
-    color: #000000;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.25);
   }
 
   .card-basic {
+    min-width: 30%;
     width: auto;
     border-radius: 12px;
     padding: 2rem;
-    background-color: #ffffff;
-    color: #000000;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.25);
   }
+}
+
+.card-container {
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 1rem;
+  top: 80px;
+  width: 100%;
 }
