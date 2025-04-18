@@ -52,116 +52,70 @@
         fermentum facilisis, mauris magna tincidunt justo, vitae porttitor orci libero nec nisl. Integer vulputate, odio
         sed laoreet feugiat, mauris tortor scelerisque justo, vitae convallis orci mi a orci.</p>
       <a href="#" class="btn secondary-btn">Learn More</a>
+      
       <sl-drawer label="Calculate Your Maintenance Calories" class="drawer-header-actions" style="--size: 100vw;">
         <sl-icon-button class="new-window" slot="header-actions" name="box-arrow-up-right"></sl-icon-button>
-        <sl-card class="card-basic">
-          <div class="calc-header" slot="header">
-            Maintenance Calories Calculator
-          </div>
-          <form id="calorieForm">
-            <sl-select label="Gender:" id="gender" required>
-              <sl-option value="male">Male</sl-option>
-              <sl-option value="female">Female</sl-option>
-            </sl-select>
-            <br />
-
-            <sl-input id="age" label="Age (years):" type="number" required></sl-input>
-            <br />
-
-            <sl-input id="weight" label="Weight (kg):" type="number" required></sl-input>
-            <br />
-
-            <sl-input id="height" label="Height (cm):" type="number" required></sl-input>
-            <br />
-
-            <sl-select label="Activity" id="activity" required>
-              <sl-option value="1.2">Sedentary (little or no exercise)</sl-option>
-              <sl-option value="1.375">Lightly active (1-3 days/week)</sl-option>
-              <sl-option value="1.55">Moderately active (3-5 days/week)</sl-option>
-              <sl-option value="1.725">Very active (6-7 days/week)</sl-option>
-              <sl-option value="1.9">Extra active (hard training or physical job)</sl-option>
-            </sl-select>
-            <br />
-
-            <sl-button type="submit" variant="primary">Calculate TDEE</sl-button>
-            <sl-button type="reset" variant="default">Reset</sl-button>
-          </form>
-          <div slot="footer">
-            <div id="result" class="result" style="display: none;"></div>
-          </div>
-          <style>
-            .card-footer {
-              max-width: 300px;
-              background-color: #0D1B2A;
-            }
-
-            .card-footer [slot='footer'] {
-              display: flex;
-              justify-content: space-between;
-              align-items: center;
-            }
-          </style>
-        </sl-card>
-
-        <script type="module">
-          await Promise.all([
-            customElements.whenDefined('sl-button'),
-            customElements.whenDefined('sl-input'),
-            customElements.whenDefined('sl-option'),
-            customElements.whenDefined('sl-select')
-          ]);
-
-          document.getElementById('calorieForm').addEventListener('reset', function () {
-            const resultDiv = document.getElementById('result');
-            resultDiv.style.display = 'none';
-            resultDiv.innerHTML = '';
-          });
-
-          document.getElementById('calorieForm').addEventListener('submit', function (e) {
-            e.preventDefault();
-
-            const gender = document.getElementById('gender').value;
-            const age = parseInt(document.getElementById('age').value);
-            const weight = parseFloat(document.getElementById('weight').value);
-            const height = parseFloat(document.getElementById('height').value);
-            const activity = parseFloat(document.getElementById('activity').value);
-
-            let bmr;
-
-            if (gender === 'male') {
-              bmr = (10 * weight) + (6.25 * height) - (5 * age) + 5;
-            } else {
-              bmr = (10 * weight) + (6.25 * height) - (5 * age) - 161;
-            }
-
-            const tdee = Math.round(bmr * activity);
-
-            const resultDiv = document.getElementById('result');
-            resultDiv.style.display = 'block';
-            resultDiv.innerHTML = `
-              <span style="font-size: 1.5rem;">${tdee} calories/day</span>
-            `;
-          });
-        </script>
-
-        <style>
-          .card-basic {
-            color: #000;
-            width: 50%;
-          }
-
-          sl-select,
-          sl-input {
-            width: 100%;
-            margin-bottom: 0rem;
-          }
-
-          .calc-header {
-            font-size: 25px;
-          }
-        </style>
+      
+        <!-- FLEX CONTAINER FOR BOTH CARDS -->
+        <div class="drawer-flex">
+          <!-- HOW IT WORKS CARD -->
+          <sl-card class="info-card">
+            <div slot="header" class="card-title">🧠 How It Works</div>
+            <p>This calculator uses the <strong>Mifflin-St Jeor Equation</strong> to estimate your maintenance calories (TDEE).</p>
+      
+            <p><strong>1. Calculate BMR:</strong></p>
+            <ul>
+              <li><strong>Men:</strong> (10 × weight) + (6.25 × height) − (5 × age) + 5</li>
+              <li><strong>Women:</strong> (10 × weight) + (6.25 × height) − (5 × age) − 161</li>
+            </ul>
+      
+            <p><strong>2. Apply Activity Factor:</strong></p>
+            <ul>
+              <li>Sedentary: 1.2</li>
+              <li>Lightly active: 1.375</li>
+              <li>Moderately active: 1.55</li>
+              <li>Very active: 1.725</li>
+              <li>Extra active: 1.9</li>
+            </ul>
+      
+            <p><strong>TDEE = BMR × Activity Factor</strong></p>
+            <p>This gives you the estimated calories to maintain your weight.</p>
+          </sl-card>
+      
+          <!-- CALCULATOR CARD -->
+          <sl-card class="card-basic">
+            <div class="calc-header" slot="header">Maintenance Calories Calculator</div>
+            <form id="calorieForm">
+              <sl-select label="Gender:" id="gender" required>
+                <sl-option value="male">Male</sl-option>
+                <sl-option value="female">Female</sl-option>
+              </sl-select><br />
+      
+              <sl-input id="age" label="Age (years):" type="number" required></sl-input><br />
+              <sl-input id="weight" label="Weight (kg):" type="number" required></sl-input><br />
+              <sl-input id="height" label="Height (cm):" type="number" required></sl-input><br />
+      
+              <sl-select label="Activity" id="activity" required>
+                <sl-option value="1.2">Sedentary (little or no exercise)</sl-option>
+                <sl-option value="1.375">Lightly active (1–3 days/week)</sl-option>
+                <sl-option value="1.55">Moderately active (3–5 days/week)</sl-option>
+                <sl-option value="1.725">Very active (6–7 days/week)</sl-option>
+                <sl-option value="1.9">Extra active (hard training or physical job)</sl-option>
+              </sl-select><br />
+      
+              <sl-button type="submit" variant="primary">Calculate TDEE</sl-button>
+              <sl-button type="reset" variant="default">Reset</sl-button>
+            </form>
+      
+            <div slot="footer">
+              <div id="result" class="result" style="display: none;"></div>
+            </div>
+          </sl-card>
+        </div>
+      
         <sl-button slot="footer" variant="primary" class="drawer-close-btn">Close</sl-button>
       </sl-drawer>
+      
 
       <sl-button>Open Drawer</sl-button>
 

@@ -17,30 +17,31 @@ a {
   color: inherit;
 }
 
+/* Drawer background and layout */
 .drawer-header-actions::part(panel) {
   background-color: #0D1B2A;
+  color: white;
 }
 
-.drawer-header-actions::part(header) {
-  background-color: black;
-
-}
-
-.drawer-header-actions::part(title) {
-  background-color: white;
-  color: black;
-}
-
-.drawer-header-actions::part(body) {
+.drawer-header-actions::part(header),
+.drawer-header-actions::part(body),
+.drawer-header-actions::part(footer) {
   background-color: black;
   color: white;
 }
 
-.drawer-header-actions::part(footer) {
-  background-color: white;
-  color: black;
+.drawer-header-actions::part(title) {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: white;
 }
 
+.drawer-header-actions::part(footer) {
+  background-color: #1b263b;
+  border-top: 1px solid #2c3e50;
+}
+
+/* Drawer adjustments */
 sl-drawer::part(close-button) {
   color: white;
 }
@@ -53,15 +54,82 @@ sl-drawer::part(close-button):hover {
 sl-drawer::part(base) {
   top: 80px !important;
   height: calc(100vh - 80px);
-  /* Full screen minus navbar */
 }
 
 sl-drawer::part(body) {
   overflow-y: auto;
 }
 
+/* Flex container for both cards */
+.drawer-flex {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  padding: 2rem;
+  justify-content: center;
+  align-items: flex-start;
+}
 
+/* Shared card styles */
+.info-card, .card-basic {
+  flex: 1 1 45%;
+  min-width: 320px;
+  max-width: 500px;
+  background-color: #ffffff;
+  color: #000000;
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.25);
+}
 
+/* Heading styles */
+.card-title, .calc-header {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 1.25rem;
+}
+
+/* Form inputs spacing */
+sl-select,
+sl-input {
+  width: 100%;
+  margin-bottom: 1rem;
+}
+
+/* Result output */
+.result {
+  margin-top: 1.5rem;
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: #2ecc71;
+}
+
+/* How It Works specific enhancements */
+.info-card h3 {
+  display: flex;
+  align-items: center;
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.info-card h3::before {
+  content: "🧠";
+  margin-right: 0.5rem;
+  font-size: 1.5rem;
+}
+
+.info-card p,
+.info-card li {
+  line-height: 1.6;
+  font-size: 0.95rem;
+  margin-bottom: 0.5rem;
+}
+
+/* Buttons */
+#calorieForm sl-button + sl-button {
+  margin-left: 0.75rem;
+}
 
 /* Navigation */
 .navbar {
